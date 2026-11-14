@@ -1,0 +1,22 @@
+{
+  "region": "Gale Crater - Mount Sharp (Aeolis Mons)",
+  "datum": "Mars Areoid (MOLA 0-elevation reference)",
+  "bounds": {
+    "minLat": -4.85,
+    "maxLat": -4.55,
+    "minLng": 137.30,
+    "maxLng": 137.50
+  },
+  "gridSize": { "rows": 31, "cols": 21 },
+  "features": [
+    { "name": "Crater Floor (Bradbury)", "lat": -4.59, "lng": 137.44, "elevation": -4501 },
+    { "name": "Yellowknife Bay Depression", "lat": -4.59, "lng": 137.45, "elevation": -4520 },
+    { "name": "Pahrump Hills", "lat": -4.675, "lng": 137.38, "elevation": -4450 },
+    { "name": "Namib Dune", "lat": -4.685, "lng": 137.375, "elevation": -4435 },
+    { "name": "Vera Rubin Ridge Crest", "lat": -4.73, "lng": 137.36, "elevation": -4200 },
+    { "name": "Glen Torridon Trough", "lat": -4.755, "lng": 137.385, "elevation": -4150 },
+    { "name": "Greenheugh Pediment Cap", "lat": -4.745, "lng": 137.34, "elevation": -4050 },
+    { "name": "Gediz Vallis Channel", "lat": -4.78, "lng": 137.35, "elevation": -3850 },
+    { "name": "Mount Sharp Lower Slope", "lat": -4.82, "lng": 137.37, "elevation": -3600 }
+  ]
+}

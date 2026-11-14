@@ -1,0 +1,17 @@
+[
+  { "sol": 0, "name": "Bradbury Landing", "lat": -4.5895, "lng": 137.4417, "elevation": -4501, "distanceKm": 0.0, "hazard": "Bajo" },
+  { "sol": 125, "name": "Yellowknife Bay", "lat": -4.5910, "lng": 137.4485, "elevation": -4520, "distanceKm": 0.8, "hazard": "Bajo" },
+  { "sol": 380, "name": "Darwin Waypoint", "lat": -4.6150, "lng": 137.4300, "elevation": -4495, "distanceKm": 2.5, "hazard": "Bajo" },
+  { "sol": 450, "name": "Cooperstown", "lat": -4.6300, "lng": 137.4180, "elevation": -4480, "distanceKm": 4.1, "hazard": "Bajo" },
+  { "sol": 540, "name": "Dingo Gap", "lat": -4.6400, "lng": 137.4050, "elevation": -4472, "distanceKm": 5.9, "hazard": "Medio" },
+  { "sol": 630, "name": "Kimberley (KMS-9)", "lat": -4.6520, "lng": 137.3980, "elevation": -4465, "distanceKm": 7.4, "hazard": "Bajo" },
+  { "sol": 753, "name": "Pahrump Hills", "lat": -4.6750, "lng": 137.3800, "elevation": -4450, "distanceKm": 10.3, "hazard": "Medio" },
+  { "sol": 1180, "name": "Namib Dune", "lat": -4.6850, "lng": 137.3750, "elevation": -4435, "distanceKm": 12.1, "hazard": "Alto" },
+  { "sol": 1400, "name": "Murray Buttes", "lat": -4.7000, "lng": 137.3700, "elevation": -4390, "distanceKm": 14.8, "hazard": "Medio" },
+  { "sol": 1800, "name": "Vera Rubin Ridge - Base", "lat": -4.7150, "lng": 137.3650, "elevation": -4310, "distanceKm": 18.2, "hazard": "Medio" },
+  { "sol": 2100, "name": "Vera Rubin Ridge - Cresta", "lat": -4.7300, "lng": 137.3600, "elevation": -4200, "distanceKm": 20.6, "hazard": "Alto" },
+  { "sol": 2350, "name": "Glen Torridon (Entrada)", "lat": -4.7450, "lng": 137.3750, "elevation": -4175, "distanceKm": 23.4, "hazard": "Bajo" },
+  { "sol": 2700, "name": "Greenheugh Pediment Base", "lat": -4.7450, "lng": 137.3450, "elevation": -4100, "distanceKm": 26.8, "hazard": "Alto" },
+  { "sol": 3300, "name": "Mont Mercou", "lat": -4.7600, "lng": 137.3650, "elevation": -4020, "distanceKm": 29.5, "hazard": "Medio" },
+  { "sol": 4000, "name": "Gediz Vallis Ridge", "lat": -4.7800, "lng": 137.3500, "elevation": -3850, "distanceKm": 33.2, "hazard": "Medio" }
+]

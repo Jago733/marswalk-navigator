@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000000;
+  color: #F5F5F7;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom delicate Apple scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Leaflet dark theme adaptations */
+.leaflet-container {
+  background: #000000 !important;
+  font-family: inherit;
+}
+
+.leaflet-bar {
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4) !important;
+  border-radius: 12px !important;
+  overflow: hidden;
+}
+
+.leaflet-bar a {
+  background-color: rgba(29, 29, 31, 0.85) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  color: #F5F5F7 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  transition: all 0.15s ease;
+}
+
+.leaflet-bar a:hover {
+  background-color: rgba(58, 58, 60, 0.95) !important;
+  color: #0071E3 !important;
+}
+
+/* Leaflet Popup Apple styling */
+.leaflet-popup-content-wrapper {
+  background: rgba(29, 29, 31, 0.9) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 16px !important;
+  color: #F5F5F7 !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6) !important;
+  padding: 4px;
+}
+
+.leaflet-popup-tip {
+  background: rgba(29, 29, 31, 0.9) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+.leaflet-popup-content {
+  margin: 12px 14px !important;
+  line-height: 1.4 !important;
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+  color: #86868B !important;
+  padding: 8px 8px 0 0 !important;
+}
+
+.leaflet-container a.leaflet-popup-close-button:hover {
+  color: #F5F5F7 !important;
+}
+
+/* Glassmorphism helpers */
+.glass-panel {
+  background: rgba(29, 29, 31, 0.78);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-pill {
+  background: rgba(44, 44, 46, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Apple buttons */
+.btn-apple-primary {
+  background-color: #0071E3;
+  color: #FFFFFF;
+  border-radius: 980px;
+  font-weight: 500;
+  transition: all 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.btn-apple-primary:hover {
+  background-color: #0076DF;
+  box-shadow: 0 0 16px rgba(0, 113, 227, 0.4);
+  transform: translateY(-0.5px);
+}
+
+.btn-apple-primary:active {
+  background-color: #0062C4;
+  transform: translateY(0.5px);
+}
+
+.btn-apple-secondary {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #F5F5F7;
+  border-radius: 980px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.btn-apple-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.2);
+}

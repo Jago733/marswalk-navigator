@@ -1,0 +1,39 @@
+{
+  "currentSol": 4120,
+  "earthDate": "2026-11-14",
+  "ls": 215.4,
+  "season": "Primavera austral en Marte",
+  "current": {
+    "tempAir": -22,
+    "tempGround": -8,
+    "tempMin": -76,
+    "tempMax": -14,
+    "pressure": 825,
+    "pressureUnit": "Pa (0.825 kPa)",
+    "windSpeed": 4.8,
+    "windSpeedUnit": "m/s (17.3 km/h)",
+    "windDirection": "ESE (115°)",
+    "windMaxGust": 12.2,
+    "humidity": 4.2,
+    "uvIndex": "Extremo (Nivel 8)",
+    "opacityTau": 0.52,
+    "dustCondition": "Estable (Sin tormenta regional activa)",
+    "visibilityKm": 28.5
+  },
+  "evaSuitImpact": {
+    "recommendedWindow": "10:30 a 15:30 Sol Time (temperatura > -35°C reduce consumo de calentadores de traje en un 42%)",
+    "gloveTempWarning": "Riesgo de congelamiento por contacto en sustratos rocosos a la sombra (< -60°C)",
+    "dustFilterStatus": "Filtros HEPA de traje con 96% de vida útil restante",
+    "pressureSafetyMargin": "Diferencial de presión traje/atmósfera: 29.3 kPa (Nominal)"
+  },
+  "hourlyForecast": [
+    { "solHour": "06:00", "tempAir": -74, "groundTemp": -78, "pressure": 845, "wind": 2.1, "uv": 0, "status": "Demasiado frío para EVA" },
+    { "solHour": "08:00", "tempAir": -58, "groundTemp": -52, "pressure": 838, "wind": 3.4, "uv": 2, "status": "Inicio ventana fría" },
+    { "solHour": "10:00", "tempAir": -35, "groundTemp": -24, "pressure": 830, "wind": 4.5, "uv": 5, "status": "Ventana EVA óptima" },
+    { "solHour": "12:00", "tempAir": -18, "groundTemp": 2, "pressure": 822, "wind": 5.8, "uv": 9, "status": "Pico térmico favorable" },
+    { "solHour": "14:00", "tempAir": -14, "groundTemp": 4, "pressure": 818, "wind": 6.2, "uv": 8, "status": "Ventana EVA óptima" },
+    { "solHour": "16:00", "tempAir": -28, "groundTemp": -15, "pressure": 824, "wind": 5.1, "uv": 4, "status": "Retorno recomendado" },
+    { "solHour": "18:00", "tempAir": -55, "groundTemp": -50, "pressure": 835, "wind": 3.8, "uv": 0, "status": "Fin de luz diurna" },
+    { "solHour": "20:00", "tempAir": -71, "groundTemp": -75, "pressure": 842, "wind": 2.5, "uv": 0, "status": "Noche marciana" }
+  ]
+}

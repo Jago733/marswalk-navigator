@@ -1,0 +1,44 @@
+[
+  {
+    "id": "clays",
+    "name": "Filosilicatos (Arcillas)",
+    "color": "#30D158",
+    "description": "Minerales formados en presencia de agua neutra o poco ácida prolongada. Evidencia de habitabilidad antigua.",
+    "signature": "Absorción espectral a 1.4 µm, 1.9 µm y 2.3 µm (CRISM)",
+    "regions": [
+      { "name": "Glen Torridon", "lat": -4.755, "lng": 137.385, "radiusMeters": 1800, "abundance": "Muy Alta (45-65%)" },
+      { "name": "Bahía de Yellowknife", "lat": -4.590, "lng": 137.448, "radiusMeters": 900, "abundance": "Alta (35-50%)" }
+    ]
+  },
+  {
+    "id": "hematite",
+    "name": "Hematita Cristalina Gris",
+    "color": "#BF5AF2",
+    "description": "Óxido de hierro precipitado a partir de fluidos acuosos calientes subterráneos oxigenados.",
+    "signature": "Banda ancha de absorción a 0.86 µm y pendiente UV (CRISM)",
+    "regions": [
+      { "name": "Cresta Vera Rubin", "lat": -4.730, "lng": 137.360, "radiusMeters": 1400, "abundance": "Muy Alta (>70%)" }
+    ]
+  },
+  {
+    "id": "sulfates",
+    "name": "Sulfatos Polihidratados",
+    "color": "#0071E3",
+    "description": "Sales evaporíticas depositadas a medida que el clima marciano se secaba y se volvía más hiperácido.",
+    "signature": "Absorción profunda a 1.95 µm y 2.4 µm (CRISM)",
+    "regions": [
+      { "name": "Unidad de Sulfatos del Monte Sharp", "lat": -4.770, "lng": 137.365, "radiusMeters": 2500, "abundance": "Dominante (>60%)" },
+      { "name": "Canal Gediz Vallis", "lat": -4.780, "lng": 137.350, "radiusMeters": 1200, "abundance": "Media (30-45%)" }
+    ]
+  },
+  {
+    "id": "basaltic-sand",
+    "name": "Arenas Basálticas y Olivino",
+    "color": "#FF9F0A",
+    "description": "Arenas de origen volcánico no alteradas ricas en olivino y piroxeno. Constituyen campos de dunas activas.",
+    "signature": "Banda ancha de absorción de hierro ferroso a 1.05 µm (CRISM)",
+    "regions": [
+      { "name": "Campo de Dunas Bagnold / Namib", "lat": -4.685, "lng": 137.375, "radiusMeters": 1600, "abundance": "Pura (85%)" }
+    ]
+  }
+]

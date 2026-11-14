@@ -1,0 +1,32 @@
+{
+  "instrument": "Radiation Assessment Detector (RAD)",
+  "mission": "NASA Mars Science Laboratory / Curiosity",
+  "currentReading": {
+    "doseRateMicroSvPerHour": 27.2,
+    "dailyDoseMilliSv": 0.653,
+    "gcrFlux": "Nominal (0.48 mGy/d)",
+    "sepEventStatus": "SILENCIOSO / SIN EVENTO SOLAR ACTIVO",
+    "solarParticleAlertLevel": "Verde",
+    "magnetosphereStatus": "Ausente (Solo remanente cortical débil en el hemisferio sur)",
+    "atmosphericShieldingFactor": 1.14
+  },
+  "safetyThresholds": {
+    "careerLimitMilliSv": 600,
+    "annualLimitMilliSv": 500,
+    "thirtyDayLimitMilliSv": 250,
+    "maxRecommendedSingleEvaMicroSv": 250,
+    "nominalEvaDurationHours": 6,
+    "nominalEvaDoseMicroSv": 163.2
+  },
+  "elevationShieldingModel": {
+    "description": "La atmósfera marciana actúa como blindaje pasivo. Por cada 1,000 m que se desciende hacia el fondo del Cráter Gale (-4,500 m), la columna atmosférica aumenta la presión en ~60 Pa y reduce la dosis GCR en un 4.5%.",
+    "referenceElevation": -4500,
+    "baseDoseRate": 26.5,
+    "slopePerKm": 1.2
+  },
+  "materialsShieldingFactor": [
+    { "material": "Traje EVA de Astronauta (Kevlar/Mylar/Dyneema)", "attenuation": "12% GCR, 85% partículas alfa y beta débiles" },
+    { "material": "Regolito Marciano (Bolsas de 30 cm en hábitat)", "attenuation": "65% GCR total, 98% radiación secundaria neutrónica" },
+    { "material": "Rover Presurizado (Carcasa compuesta de polietileno)", "attenuation": "35% atenuación total" }
+  ]
+}
