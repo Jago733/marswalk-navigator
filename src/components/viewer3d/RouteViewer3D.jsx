@@ -26,7 +26,7 @@ export function RouteViewer3D({ calculatedRoute, hoveredPoint, onHoverPoint }) {
       {/* 3D Canvas Viewport (Upper 65-70%) */}
       <div className="relative flex-1 w-full min-h-[300px]">
         <Canvas
-          camera={{ position: [0, 18, 32], fov: 45 }}
+          camera={{ position: [0, 40, 70], fov: 45 }}
           className="w-full h-full"
         >
           <Suspense fallback={null}>

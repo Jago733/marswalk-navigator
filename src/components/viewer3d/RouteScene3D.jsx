@@ -12,7 +12,8 @@ export function RouteScene3D({ calculatedRoute, hoveredPoint, onHoverPoint }) {
   const waypoints = calculatedRoute.waypoints;
 
   // Normalizar coordenadas centradas en (0,0) para escala Three.js
-  const { normalizedPoints, center, elevMin, elevMax } = useMemo(() => {
+  // Grilla dinámica: la ruta siempre cabe dentro del 70% del grid
+  const { normalizedPoints, center, elevMin, elevMax, gridSize, gridDivisions } = useMemo(() => {
     let minLat = Infinity, maxLat = -Infinity;
     let minLng = Infinity, maxLng = -Infinity;
     let minE = Infinity, maxE = -Infinity;
@@ -29,8 +30,14 @@ export function RouteScene3D({ calculatedRoute, hoveredPoint, onHoverPoint }) {
     const cLat = (minLat + maxLat) / 2;
     const cLng = (minLng + maxLng) / 2;
 
-    // Escala espacial: 1 unidad Three.js ~ 200m
-    const scaleFactor = 1500;
+    const latSpread = maxLat - minLat || 0.001;
+    const lngSpread = maxLng - minLng || 0.001;
+    const spatialSpread = Math.max(latSpread, lngSpread);
+
+    // Tamaño deseado de la ruta en unidades Three.js (~70% del grid)
+    const desiredRouteSize = 60;
+    // Calcular scaleFactor dinámico para que la ruta quepa
+    const scaleFactor = desiredRouteSize / spatialSpread;
     const elevScale = 0.05; // Escala exagerada suave para visualización clara de desniveles
 
     const pts = waypoints.map((w, idx) => {
@@ -44,11 +51,28 @@ export function RouteScene3D({ calculatedRoute, hoveredPoint, onHoverPoint }) {
       };
     });
 
+    // Calcular el extent real de los puntos normalizados
+    let maxAbsX = 0, maxAbsZ = 0;
+    pts.forEach((p) => {
+      const ax = Math.abs(p.pos.x);
+      const az = Math.abs(p.pos.z);
+      if (ax > maxAbsX) maxAbsX = ax;
+      if (az > maxAbsZ) maxAbsZ = az;
+    });
+
+    // Grid = 40% más grande que el extent máximo de la ruta (por cada lado)
+    const computedGridSize = Math.max(maxAbsX, maxAbsZ) * 2 * 1.4;
+    // Mínimo 120 unidades, máximo 300 para que no sea ni diminuto ni enorme
+    const finalGridSize = Math.max(120, Math.min(300, computedGridSize));
+    const divisions = Math.round(finalGridSize / 4); // ~1 línea cada 4 unidades
+
     return {
       normalizedPoints: pts,
       center: new THREE.Vector3(0, 0, 0),
       elevMin: minE,
       elevMax: maxE,
+      gridSize: finalGridSize,
+      gridDivisions: divisions,
     };
   }, [waypoints]);
 
@@ -110,13 +134,16 @@ export function RouteScene3D({ calculatedRoute, hoveredPoint, onHoverPoint }) {
     return geom;
   }, [normalizedPoints]);
 
+  // Calcular distancias de cámara basadas en el gridSize
+  const camMaxDist = gridSize * 2;
+
   return (
     <>
       <OrbitControls
         enableDamping
         dampingFactor={0.05}
         minDistance={5}
-        maxDistance={120}
+        maxDistance={camMaxDist}
         maxPolarAngle={Math.PI / 2 - 0.05} // No pasar por debajo del suelo
       />
 
@@ -125,9 +152,15 @@ export function RouteScene3D({ calculatedRoute, hoveredPoint, onHoverPoint }) {
       <directionalLight position={[15, 30, 20]} intensity={1.4} color="#FFF2E0" castShadow />
       <pointLight position={[-20, 10, -20]} intensity={0.4} color="#C1440E" />
 
-      {/* Grilla de referencia táctica en base */}
+      {/* Plano de suelo sutil para dar profundidad visual */}
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.05, 0]} receiveShadow>
+        <planeGeometry args={[gridSize * 1.2, gridSize * 1.2]} />
+        <meshStandardMaterial color="#0D0D0D" transparent opacity={0.6} roughness={1} />
+      </mesh>
+
+      {/* Grilla de referencia táctica — tamaño dinámico según ruta */}
       <gridHelper
-        args={[100, 30, '#0071E3', 'rgba(255,255,255,0.06)']}
+        args={[gridSize, gridDivisions, '#0071E3', 'rgba(255,255,255,0.06)']}
         position={[0, 0, 0]}
       />
 
@@ -165,7 +198,7 @@ export function RouteScene3D({ calculatedRoute, hoveredPoint, onHoverPoint }) {
                 if (onHoverPoint) onHoverPoint(pt.original);
               }}
             >
-              <sphereGeometry args={[0.2, 8, 8]} />
+              <sphereGeometry args={[0.3, 8, 8]} />
               <meshBasicMaterial color={color} />
             </mesh>
           </group>
@@ -175,14 +208,14 @@ export function RouteScene3D({ calculatedRoute, hoveredPoint, onHoverPoint }) {
       {/* Marcador Punto A (Partida) */}
       <group position={pStart.pos}>
         <mesh>
-          <sphereGeometry args={[0.55, 16, 16]} />
+          <sphereGeometry args={[0.65, 16, 16]} />
           <meshStandardMaterial color="#30D158" emissive="#30D158" emissiveIntensity={0.6} />
         </mesh>
         <Line points={[new THREE.Vector3(0, 0, 0), new THREE.Vector3(0, -pStart.pos.y, 0)]} color="#30D158" lineWidth={1.5} dashed />
-        <Billboard position={[0, 1.2, 0]}>
+        <Billboard position={[0, 1.5, 0]}>
           <Html center distanceFactor={14}>
             <div className="bg-[#1D1D1F]/90 backdrop-blur-md border border-[#30D158]/40 px-2.5 py-0.5 rounded-full text-[10px] font-bold text-[#30D158] whitespace-nowrap shadow-lg flex items-center gap-1.5">
-              <img src="/mars-logo.png" className="w-3.5 h-3.5 object-contain" alt="" />
+              <img src="/logo-geotrend.png" className="w-3.5 h-3.5 object-contain" alt="" />
               <span>PARTIDA (A)</span>
             </div>
           </Html>
@@ -192,14 +225,14 @@ export function RouteScene3D({ calculatedRoute, hoveredPoint, onHoverPoint }) {
       {/* Marcador Punto B (Llegada) */}
       <group position={pEnd.pos}>
         <mesh>
-          <sphereGeometry args={[0.65, 16, 16]} />
+          <sphereGeometry args={[0.75, 16, 16]} />
           <meshStandardMaterial color="#0071E3" emissive="#0071E3" emissiveIntensity={0.8} />
         </mesh>
         <Line points={[new THREE.Vector3(0, 0, 0), new THREE.Vector3(0, -pEnd.pos.y, 0)]} color="#0071E3" lineWidth={1.5} dashed />
-        <Billboard position={[0, 1.3, 0]}>
+        <Billboard position={[0, 1.6, 0]}>
           <Html center distanceFactor={14}>
             <div className="bg-[#1D1D1F]/90 backdrop-blur-md border border-[#0071E3]/40 px-2.5 py-0.5 rounded-full text-[10px] font-bold text-[#0071E3] whitespace-nowrap shadow-lg flex items-center gap-1.5">
-              <img src="/mars-logo.png" className="w-3.5 h-3.5 object-contain" alt="" />
+              <img src="/logo-geotrend.png" className="w-3.5 h-3.5 object-contain" alt="" />
               <span>DESTINO (B)</span>
             </div>
           </Html>

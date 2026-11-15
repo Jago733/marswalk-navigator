@@ -95,16 +95,18 @@ function RouteBoundsController({ waypoints }) {
 }
 
 // Controller to smoothly navigate between Global and Gale Crater views
-function MapNavigationHelper({ targetView }) {
+function MapNavigationHelper({ targetView, onAutoLayerSwitch }) {
   const map = useMap();
   useEffect(() => {
     if (!targetView) return;
     if (targetView.type === 'global') {
       map.flyTo([0, 0], 2, { duration: 1.5 });
     } else if (targetView.type === 'gale') {
+      // Al ir a Gale Crater, cambiar automáticamente a Viking para mejor resolución
+      if (onAutoLayerSwitch) onAutoLayerSwitch('viking-color');
       map.flyTo([-4.68, 137.38], 11, { duration: 1.5 });
     }
-  }, [targetView, map]);
+  }, [targetView, map, onAutoLayerSwitch]);
   return null;
 }
 
@@ -197,14 +199,20 @@ export function MarsMap2D({
       {/* Leaflet Map Canvas */}
       <MapContainer
         center={[-4.68, 137.38]}
-        zoom={11}
+        zoom={4}
         minZoom={1}
         maxZoom={18}
         scrollWheelZoom={true}
         className="w-full h-full"
         zoomControl={false}
       >
-        <MapNavigationHelper targetView={targetView} />
+        <MapNavigationHelper
+          targetView={targetView}
+          onAutoLayerSwitch={(layerId) => {
+            setCurrentLayerId(layerId);
+            if (onLayerChange) onLayerChange(layerId);
+          }}
+        />
 
         <MapEventHandler
           onMapClick={handleMapClick}
