@@ -12,7 +12,7 @@ import { useRadiation } from './hooks/useRadiation';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('dual'); // 'dual' | 'map2d' | 'viewer3d' | 'mission'
-  const [activeLayer, setActiveLayer] = useState('viking-color');
+  const [activeLayer, setActiveLayer] = useState('mars-global-custom');
 
   const { pois, curiosityRoute, minerals, loading: loadingPois } = usePointsOfInterest();
   const { weather, loading: loadingWeather } = useWeather();

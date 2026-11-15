@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import {
   MapContainer,
   TileLayer,
+  ImageOverlay,
   Polyline,
   Marker,
   Popup,
@@ -23,6 +24,8 @@ import {
   Flame,
   Shield,
   Eye,
+  Globe2,
+  Crosshair,
 } from 'lucide-react';
 
 // Custom Leaflet Icons using pure SVG
@@ -73,12 +76,26 @@ function RouteBoundsController({ waypoints }) {
   return null;
 }
 
+// Controller to smoothly navigate between Global and Gale Crater views
+function MapNavigationHelper({ targetView }) {
+  const map = useMap();
+  useEffect(() => {
+    if (!targetView) return;
+    if (targetView.type === 'global') {
+      map.flyTo([0, 0], 2, { duration: 1.5 });
+    } else if (targetView.type === 'gale') {
+      map.flyTo([-4.68, 137.38], 11, { duration: 1.5 });
+    }
+  }, [targetView, map]);
+  return null;
+}
+
 export function MarsMap2D({
   routeHook,
   pois,
   curiosityRoute,
   minerals,
-  activeLayer = 'viking-color',
+  activeLayer = 'mars-global-custom',
   onLayerChange,
 }) {
   const {
@@ -91,10 +108,17 @@ export function MarsMap2D({
   } = routeHook;
 
   const [currentLayerId, setCurrentLayerId] = useState(activeLayer);
+  const [targetView, setTargetView] = useState(null);
   const [showCuriosity, setShowCuriosity] = useState(true);
   const [showMinerals, setShowMinerals] = useState(true);
   const [showHazards, setShowHazards] = useState(true);
   const [clickMode, setClickMode] = useState('end'); // 'start' o 'end'
+
+  useEffect(() => {
+    if (activeLayer) {
+      setCurrentLayerId(activeLayer);
+    }
+  }, [activeLayer]);
 
   const selectedTileLayer =
     MARS_LAYERS.find((l) => l.id === currentLayerId) || MARS_LAYERS[0];
@@ -155,13 +179,15 @@ export function MarsMap2D({
       {/* Leaflet Map Canvas */}
       <MapContainer
         center={[-4.68, 137.38]}
-        zoom={12}
-        minZoom={9}
-        maxZoom={16}
+        zoom={11}
+        minZoom={1}
+        maxZoom={18}
         scrollWheelZoom={true}
         className="w-full h-full"
         zoomControl={false}
       >
+        <MapNavigationHelper targetView={targetView} />
+
         <MapEventHandler
           onMapClick={handleMapClick}
           onMapHover={handleMapHover}
@@ -171,16 +197,26 @@ export function MarsMap2D({
           <RouteBoundsController waypoints={calculatedRoute.waypoints} />
         )}
 
-        {/* NASA Mars Trek WMTS Tile Layer */}
-        <TileLayer
-          key={selectedTileLayer.id}
-          url={selectedTileLayer.url}
-          attribution={selectedTileLayer.attribution}
-          maxZoom={selectedTileLayer.maxZoom}
-          minZoom={selectedTileLayer.minZoom}
-          tileSize={256}
-          noWrap={true}
-        />
+        {/* Base Layer: Global Mars Image Overlay or NASA WMTS Tile Layer */}
+        {selectedTileLayer.isImageOverlay ? (
+          <ImageOverlay
+            key={selectedTileLayer.id}
+            url={selectedTileLayer.imageUrl}
+            bounds={selectedTileLayer.bounds}
+            opacity={1}
+            zIndex={1}
+          />
+        ) : (
+          <TileLayer
+            key={selectedTileLayer.id}
+            url={selectedTileLayer.url}
+            attribution={selectedTileLayer.attribution}
+            maxZoom={selectedTileLayer.maxZoom}
+            minZoom={selectedTileLayer.minZoom}
+            tileSize={256}
+            noWrap={true}
+          />
+        )}
 
         {/* Fallback procedural dark Mars styling if tiles are pending */}
         <div className="leaflet-tile-pane opacity-90" />
@@ -346,6 +382,28 @@ export function MarsMap2D({
 
       {/* Floating Map Controls HUD */}
       <div className="absolute top-4 left-4 z-20 space-y-2">
+        {/* Quick View Switcher: Global vs Gale Crater */}
+        <div className="bg-[#1D1D1F]/90 backdrop-blur-xl border border-white/10 rounded-2xl p-1.5 shadow-apple-card flex items-center gap-1">
+          <button
+            type="button"
+            onClick={() => setTargetView({ type: 'global', timestamp: Date.now() })}
+            className="flex items-center gap-1.5 px-3 py-1 rounded-xl text-xs font-medium text-[#86868B] hover:text-[#F5F5F7] hover:bg-white/10 transition-all"
+            title="Ver el planeta Marte completo con el mapa satelital global"
+          >
+            <Globe2 size={13} className="text-[#0071E3]" />
+            <span>Vista Global</span>
+          </button>
+          <button
+            type="button"
+            onClick={() => setTargetView({ type: 'gale', timestamp: Date.now() })}
+            className="flex items-center gap-1.5 px-3 py-1 rounded-xl text-xs font-medium text-[#86868B] hover:text-[#F5F5F7] hover:bg-white/10 transition-all"
+            title="Centrar en el Cráter Gale y la ruta activa"
+          >
+            <Crosshair size={13} className="text-[#30D158]" />
+            <span>Cráter Gale</span>
+          </button>
+        </div>
+
         {/* Layer Selector Dropdown */}
         <div className="bg-[#1D1D1F]/90 backdrop-blur-xl border border-white/10 rounded-2xl p-2 shadow-apple-card flex items-center gap-2">
           <Layers size={14} className="text-[#0071E3] ml-1" />

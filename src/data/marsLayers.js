@@ -2,6 +2,18 @@
 
 export const MARS_LAYERS = [
   {
+    id: 'mars-global-custom',
+    name: 'Mapa Satelital de Superficie (Global)',
+    description: 'Mapeo cilíndrico de alta fidelidad de la superficie marciana con casquetes polares, cañones y cráteres.',
+    attribution: 'Misión NASA / MRO / Viking',
+    isImageOverlay: true,
+    imageUrl: '/mars-map.png',
+    bounds: [[-85.05, -180], [85.05, 180]],
+    maxZoom: 18,
+    minZoom: 1,
+    type: 'optical-global',
+  },
+  {
     id: 'viking-color',
     name: 'Viking MDIM2.1 Color',
     description: 'Mosaico en color natural calibrado de las misiones Viking Orbiter de la NASA.',
