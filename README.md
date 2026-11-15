@@ -10,7 +10,8 @@
 
 1. **Navegación GPS Superficial de Punto A a Punto B:**
    - Selección de puntos de partida y llegada mediante menú táctico o haciendo clic directamente sobre el mapa satelital.
-   - Algoritmo de enrutamiento multicriterio: minimiza la distancia, penaliza pendientes empinadas (>12°), esquiva laderas intransitables (>25°) y campos de dunas activas (Dunas de Namib), e incorpora el apantallamiento atmosférico de radiación en cotas bajas.
+   - Algoritmo de enrutamiento multicriterio basado en **A\*** sobre el DEM local: minimiza la distancia, penaliza pendientes empinadas (>12°), esquiva laderas intransitables (>25°) y campos de dunas activas (Dunas de Namib), e incorpora el apantallamiento atmosférico de radiación en cotas bajas.
+   - El sendero resultante serpentea siguiendo las curvas de nivel y la rugosidad del terreno (no es una línea recta), se suaviza con splines Catmull-Rom y respeta los puntos de partida y llegada seleccionados.
 
 2. **Visualización Cartográfica 2D:**
    - Mapas base en mosaico WMTS de **NASA Mars Trek**: Viking MDIM2.1 en color natural, Topografía sombreada MOLA, Infrarrojo diurno THEMIS y mosaicos de alta resolución CTX.
