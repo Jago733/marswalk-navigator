@@ -28,13 +28,16 @@ La primera tripulación humana en Marte realizará paseos espaciales (**Marswalk
 
 ### Restricciones de Dominio Clave
 1. **Idioma Estricto:** Toda la interfaz de usuario, métricas, avisos y glosarios están al **100% en Español (`es-ES`)**.
-2. **Filosofía 3D Ligera:** **NO se renderiza una esfera planetaria completa ni gigabytes de teselas 3D.** En su lugar, Three.js modela proceduralmente **el corredor y corte de elevación vertical de la ruta** (*Bedrock Curtain* y tubería de gradiente), logrando rendimiento de 60 FPS en cualquier navegador.
-3. **Seguridad Biomecánica:**
+2. **Filosofía 3D Ligera y Plataforma Dinámica:** **NO se renderiza una esfera planetaria completa ni gigabytes de teselas 3D.** En su lugar, Three.js modela proceduralmente **el corredor y corte de elevación vertical de la ruta** (*Bedrock Curtain* y tubería de gradiente) sobre una grilla táctica dinámica que se auto-dimensiona (+40% de margen) para que cualquier ruta quede perfectamente contenida dentro de la plantilla sin salirse de los límites, logrando 60 FPS en cualquier navegador.
+3. **Estrategia Cartográfica 2D Dual:**
+   - **Vista Global de Marte:** Mapeo cilíndrico calibrado a zoom reducido (nivel 4) para una vista macro nítida y presentable sin pixelación.
+   - **Operaciones en Cráter Gale:** Transición automática con interpolación visual hacia las capas de alta resolución WMTS (Viking MDIM2.1, CTX/HiRISE y MOLA) al centrarse en la zona operativa o seleccionar rutas.
+4. **Seguridad Biomecánica:**
    - Pendiente segura: $\le 12^\circ$
    - Pendiente moderada: $12^\circ - 20^\circ$
    - Pendiente peligrosa: $20^\circ - 25^\circ$
    - **Barrera infranqueable sin anclaje:** $> 25^\circ$ (límite del traje espacial presurizado).
-4. **Soporte Vital (PLSS):** 6 horas nominales de EVA, 2 horas de contingencia obligatoria (8 horas totales de $O_2$).
+5. **Soporte Vital (PLSS):** 6 horas nominales de EVA, 2 horas de contingencia obligatoria (8 horas totales de $O_2$).
 
 ---
 
