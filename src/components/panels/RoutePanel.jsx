@@ -58,9 +58,9 @@ export function RoutePanel({ routeHook, pois, activeLayer, onLayerChange }) {
       <div className="bg-[#1D1D1F]/80 backdrop-blur-xl border border-white/10 rounded-[18px] p-4 space-y-3.5 shadow-apple-card">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-1.5">
-            <img src="/logo-geotrend.png" alt="GeoTrend" className="w-4 h-4 object-contain" />
+            <img src="/mars-logo.png" alt="MarsWalk" className="w-4 h-4 object-contain" />
             <span className="text-xs font-semibold tracking-wider text-[#86868B] uppercase">
-              Planificador GeoTrend
+              Planificador MarsWalk
             </span>
           </div>
           <button
@@ -119,7 +119,7 @@ export function RoutePanel({ routeHook, pois, activeLayer, onLayerChange }) {
           type="button"
           onClick={() => computeRoute()}
           disabled={!startPoint || !endPoint || isCalculating}
-          className="w-full py-2.5 px-4 btn-geotrend text-xs font-semibold flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full py-2.5 px-4 btn-marswalk text-xs font-semibold flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {isCalculating ? (
             <>

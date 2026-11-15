@@ -27,22 +27,22 @@ export function Header({ activeTab, onTabChange, sol = 4120 }) {
           <div className="relative group cursor-pointer shrink-0">
             <div className="absolute -inset-1 bg-gradient-to-r from-[#C1440E] to-[#FF7B54] rounded-full blur-md opacity-40 group-hover:opacity-80 transition duration-300" />
             <img
-              src="/logo-geotrend.png"
-              alt="GeoTrend Logo"
+              src="/mars-logo.png"
+              alt="MarsWalk Logo"
               className="relative w-10 h-10 object-contain drop-shadow-[0_2px_10px_rgba(193,68,14,0.5)] transition-transform duration-300 group-hover:scale-105"
             />
           </div>
           <div>
             <div className="flex items-center gap-2">
               <h1 className="text-base font-bold tracking-tight text-[#F5F5F7]">
-                GeoTrend <span className="font-light text-[#E26D5C]">|</span> <span className="font-semibold text-[#F5F5F7]">MarsWalk</span> <span className="font-normal text-[#86868B]">Navigator</span>
+                <span className="font-semibold text-[#F5F5F7]">MarsWalk</span> <span className="font-normal text-[#86868B]">Navigator</span>
               </h1>
               <span className="text-[10px] uppercase font-semibold px-2 py-0.5 rounded-full bg-gradient-to-r from-[#C1440E]/20 to-[#FF7B54]/20 border border-[#C1440E]/40 text-[#FF7B54]">
                 NASA Space Apps
               </span>
             </div>
             <p className="text-[11px] text-[#86868B] hidden sm:block">
-              Navegación Táctica de Superficie Marciana by GeoTrend • Cráter Gale
+              Navegación Táctica de Superficie Marciana • Cráter Gale
             </p>
           </div>
         </div>

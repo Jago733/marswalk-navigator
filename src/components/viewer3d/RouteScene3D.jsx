@@ -182,7 +182,7 @@ export function RouteScene3D({ calculatedRoute, hoveredPoint, onHoverPoint }) {
         <Billboard position={[0, 1.2, 0]}>
           <Html center distanceFactor={14}>
             <div className="bg-[#1D1D1F]/90 backdrop-blur-md border border-[#30D158]/40 px-2.5 py-0.5 rounded-full text-[10px] font-bold text-[#30D158] whitespace-nowrap shadow-lg flex items-center gap-1.5">
-              <img src="/logo-geotrend.png" className="w-3.5 h-3.5 object-contain" alt="" />
+              <img src="/mars-logo.png" className="w-3.5 h-3.5 object-contain" alt="" />
               <span>PARTIDA (A)</span>
             </div>
           </Html>
@@ -199,7 +199,7 @@ export function RouteScene3D({ calculatedRoute, hoveredPoint, onHoverPoint }) {
         <Billboard position={[0, 1.3, 0]}>
           <Html center distanceFactor={14}>
             <div className="bg-[#1D1D1F]/90 backdrop-blur-md border border-[#0071E3]/40 px-2.5 py-0.5 rounded-full text-[10px] font-bold text-[#0071E3] whitespace-nowrap shadow-lg flex items-center gap-1.5">
-              <img src="/logo-geotrend.png" className="w-3.5 h-3.5 object-contain" alt="" />
+              <img src="/mars-logo.png" className="w-3.5 h-3.5 object-contain" alt="" />
               <span>DESTINO (B)</span>
             </div>
           </Html>
