@@ -105,7 +105,26 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Apple buttons */
+/* Apple & GeoTrend buttons */
+.btn-geotrend {
+  background: linear-gradient(135deg, #C1440E 0%, #E26D5C 100%);
+  color: #FFFFFF;
+  border-radius: 980px;
+  font-weight: 600;
+  box-shadow: 0 4px 16px rgba(193, 68, 14, 0.35);
+  transition: all 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.btn-geotrend:hover {
+  background: linear-gradient(135deg, #D45528 0%, #FF7B54 100%);
+  box-shadow: 0 0 20px rgba(226, 109, 92, 0.55);
+  transform: translateY(-0.5px);
+}
+
+.btn-geotrend:active {
+  transform: translateY(0.5px);
+}
+
 .btn-apple-primary {
   background-color: #0071E3;
   color: #FFFFFF;

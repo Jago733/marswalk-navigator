@@ -49,15 +49,17 @@ export function MissionPanel() {
       {/* Encabezado de la Misión */}
       <div className="bg-[#1D1D1F]/90 backdrop-blur-2xl border border-white/10 rounded-3xl p-6 shadow-apple-card">
         <div className="flex items-center gap-3 mb-2">
-          <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-[#0071E3] to-[#BF5AF2] flex items-center justify-center">
-            <Award size={20} className="text-white" />
+          <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-[#C1440E] to-[#FF7B54] p-[2px] flex items-center justify-center shadow-lg shadow-orange-500/20">
+            <div className="w-full h-full rounded-[14px] bg-black/80 flex items-center justify-center">
+              <img src="/logo-geotrend.png" alt="GeoTrend" className="w-9 h-9 object-contain" />
+            </div>
           </div>
           <div>
             <h2 className="text-xl font-bold tracking-tight text-[#F5F5F7]">
-              Consola Científica de Misión — Marswalk Artemisa
+              GeoTrend | Consola Científica de Misión — Marswalk Artemisa
             </h2>
             <p className="text-xs text-[#86868B]">
-              Respuesta al Reto NASA Space Apps: Integración Multicapa de Datos para Exploración Humana
+              Respuesta de GeoTrend al Reto NASA Space Apps: Integración Multicapa de Datos para Exploración Humana
             </p>
           </div>
         </div>
@@ -65,7 +67,7 @@ export function MissionPanel() {
         <p className="text-sm text-[#86868B] leading-relaxed mt-4">
           La primera tripulación humana en Marte requiere cartas de navegación integradas que unan
           datos ópticos de alta resolución, altimetría láser de pendientes, perfiles térmicos y radiológicos
-          en tiempo real. MarsWalk Navigator transforma terabytes de datos de orbitadores y rovers de la NASA
+          en tiempo real. GeoTrend MarsWalk Navigator transforma terabytes de datos de orbitadores y rovers de la NASA
           en una ruta segura y ejecutable con monitoreo biológico y geológico continuo.
         </p>
       </div>

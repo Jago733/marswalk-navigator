@@ -181,8 +181,9 @@ export function RouteScene3D({ calculatedRoute, hoveredPoint, onHoverPoint }) {
         <Line points={[new THREE.Vector3(0, 0, 0), new THREE.Vector3(0, -pStart.pos.y, 0)]} color="#30D158" lineWidth={1.5} dashed />
         <Billboard position={[0, 1.2, 0]}>
           <Html center distanceFactor={14}>
-            <div className="bg-[#1D1D1F]/90 backdrop-blur-md border border-[#30D158]/40 px-2 py-0.5 rounded-full text-[10px] font-bold text-[#30D158] whitespace-nowrap shadow-lg">
-              PARTIDA (A)
+            <div className="bg-[#1D1D1F]/90 backdrop-blur-md border border-[#30D158]/40 px-2.5 py-0.5 rounded-full text-[10px] font-bold text-[#30D158] whitespace-nowrap shadow-lg flex items-center gap-1.5">
+              <img src="/logo-geotrend.png" className="w-3.5 h-3.5 object-contain" alt="" />
+              <span>PARTIDA (A)</span>
             </div>
           </Html>
         </Billboard>
@@ -197,8 +198,9 @@ export function RouteScene3D({ calculatedRoute, hoveredPoint, onHoverPoint }) {
         <Line points={[new THREE.Vector3(0, 0, 0), new THREE.Vector3(0, -pEnd.pos.y, 0)]} color="#0071E3" lineWidth={1.5} dashed />
         <Billboard position={[0, 1.3, 0]}>
           <Html center distanceFactor={14}>
-            <div className="bg-[#1D1D1F]/90 backdrop-blur-md border border-[#0071E3]/40 px-2 py-0.5 rounded-full text-[10px] font-bold text-[#0071E3] whitespace-nowrap shadow-lg">
-              DESTINO (B)
+            <div className="bg-[#1D1D1F]/90 backdrop-blur-md border border-[#0071E3]/40 px-2.5 py-0.5 rounded-full text-[10px] font-bold text-[#0071E3] whitespace-nowrap shadow-lg flex items-center gap-1.5">
+              <img src="/logo-geotrend.png" className="w-3.5 h-3.5 object-contain" alt="" />
+              <span>DESTINO (B)</span>
             </div>
           </Html>
         </Billboard>

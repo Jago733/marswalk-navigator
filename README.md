@@ -1,8 +1,8 @@
-# MarsWalk Navigator 🚀🔴
+# GeoTrend | MarsWalk Navigator 🚀🔴
 ### Sistema Táctico de Navegación y Planificación de Rutas en Marte
-**NASA Space Apps Challenge**
+**GeoTrend Team • NASA Space Apps Challenge**
 
-MarsWalk Navigator es una plataforma web interactiva diseñada para la primera tripulación humana que explorará la superficie de Marte (Marswalk). Integra conjuntos de datos de múltiples misiones científicas de la NASA (MGS MOLA, Viking, CTX, THEMIS, Curiosity REMS, RAD, CRISM) sobre el Cráter Gale y el Monte Sharp (Aeolis Mons).
+**GeoTrend MarsWalk Navigator** es una plataforma web interactiva diseñada para la primera tripulación humana que explorará la superficie de Marte (Marswalk). Integra conjuntos de datos de múltiples misiones científicas de la NASA (MGS MOLA, Viking, CTX, THEMIS, Curiosity REMS, RAD, CRISM) sobre el Cráter Gale y el Monte Sharp (Aeolis Mons).
 
 ---
 

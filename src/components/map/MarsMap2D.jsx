@@ -46,8 +46,26 @@ const createCustomIcon = (color, text, isStartOrEnd = false) => {
   });
 };
 
-const iconStart = createCustomIcon('#30D158', 'A', true);
-const iconEnd = createCustomIcon('#0071E3', 'B', true);
+// Custom Leaflet Markers styled with the GeoTrend Pin
+const createGeoTrendMarker = (label, badgeColor) => {
+  return L.divIcon({
+    html: `
+      <div style="position: relative; width: 38px; height: 38px; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.85));">
+        <img src="/logo-geotrend.png" style="width: 100%; height: 100%; object-fit: contain;" alt="GeoTrend Pin" />
+        <span style="position: absolute; top: -2px; right: -2px; width: 17px; height: 17px; border-radius: 999px; background: ${badgeColor}; border: 2px solid #000; color: #fff; font-size: 10px; font-weight: 800; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 10px ${badgeColor};">
+          ${label}
+        </span>
+      </div>
+    `,
+    className: 'custom-geotrend-pin',
+    iconSize: [38, 38],
+    iconAnchor: [19, 38],
+    popupAnchor: [0, -38],
+  });
+};
+
+const iconStart = createGeoTrendMarker('A', '#30D158');
+const iconEnd = createGeoTrendMarker('B', '#0071E3');
 const iconPoi = createCustomIcon('#BF5AF2', 'POI', false);
 const iconHover = createCustomIcon('#FF9F0A', 'X', false);
 

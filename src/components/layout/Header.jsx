@@ -23,23 +23,26 @@ export function Header({ activeTab, onTabChange, sol = 4120 }) {
     <header className="relative z-30 h-16 w-full px-5 bg-black/75 backdrop-blur-2xl border-b border-white/10 flex items-center justify-between select-none">
       {/* Brand & NASA identification */}
       <div className="flex items-center gap-4">
-        <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#C1440E] to-[#FF7B54] p-[1.5px] shadow-lg shadow-orange-500/20 flex items-center justify-center">
-            <div className="w-full h-full rounded-full bg-black/60 flex items-center justify-center">
-              <Compass size={18} className="text-[#FF7B54]" />
-            </div>
+        <div className="flex items-center gap-3">
+          <div className="relative group cursor-pointer shrink-0">
+            <div className="absolute -inset-1 bg-gradient-to-r from-[#C1440E] to-[#FF7B54] rounded-full blur-md opacity-40 group-hover:opacity-80 transition duration-300" />
+            <img
+              src="/logo-geotrend.png"
+              alt="GeoTrend Logo"
+              className="relative w-10 h-10 object-contain drop-shadow-[0_2px_10px_rgba(193,68,14,0.5)] transition-transform duration-300 group-hover:scale-105"
+            />
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <h1 className="text-base font-semibold tracking-tight text-[#F5F5F7]">
-                MarsWalk <span className="font-normal text-[#86868B]">Navigator</span>
+              <h1 className="text-base font-bold tracking-tight text-[#F5F5F7]">
+                GeoTrend <span className="font-light text-[#E26D5C]">|</span> <span className="font-semibold text-[#F5F5F7]">MarsWalk</span> <span className="font-normal text-[#86868B]">Navigator</span>
               </h1>
-              <span className="text-[10px] uppercase font-semibold px-2 py-0.5 rounded-full bg-gradient-to-r from-[#0071E3]/20 to-[#BF5AF2]/20 border border-[#0071E3]/30 text-[#0071E3]">
+              <span className="text-[10px] uppercase font-semibold px-2 py-0.5 rounded-full bg-gradient-to-r from-[#C1440E]/20 to-[#FF7B54]/20 border border-[#C1440E]/40 text-[#FF7B54]">
                 NASA Space Apps
               </span>
             </div>
             <p className="text-[11px] text-[#86868B] hidden sm:block">
-              Sistema GPS y Análisis Táctico de Terreno Marciano • Cráter Gale
+              Navegación Táctica de Superficie Marciana by GeoTrend • Cráter Gale
             </p>
           </div>
         </div>

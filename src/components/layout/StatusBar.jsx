@@ -62,8 +62,9 @@ export function StatusBar({ hoveredPoint, defaultCoords = { lat: -4.6800, lng: 1
           </span>
         </div>
 
-        <div className="text-[10px] text-[#86868B] hidden md:block">
-          Datum: Areoide MOLA
+        <div className="flex items-center gap-1.5 text-[10px] text-[#86868B] hidden md:flex">
+          <img src="/logo-geotrend.png" alt="GeoTrend" className="w-3.5 h-3.5 object-contain" />
+          <span>GeoTrend • Datum: Areoide MOLA</span>
         </div>
       </div>
     </footer>
